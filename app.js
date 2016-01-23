@@ -10,6 +10,6 @@ app.get('/', function (req, res) {
 app.use(express.static(__dirname + '/'));
 
 
-app.listen(7000, function () {
+app.listen(process.env.PORT || 7000, function () {
   console.log('dotjamie local on port 7000')
 })

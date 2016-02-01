@@ -21,8 +21,5 @@
   "dependencies": {
     "Materialize": "materialize#^0.97.5",
     "components-font-awesome": "^4.5.0"
-  },
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }

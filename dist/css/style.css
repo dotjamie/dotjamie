@@ -8,12 +8,56 @@
 html {
   font-family: 'Source Sans Pro', sans-serif; }
 
+.font-18 {
+  font-size: 18px; }
+
+.gray-border {
+  border: 1px solid lightgray; }
+
+.width-initial {
+  width: initial !important; }
+
+.max-width-100pct {
+  width: 100%; }
+
+.min-height-300px {
+  min-height: 300px; }
+
+.min-height-160px {
+  min-height: 160px; }
+
+.dotjamie-green-text {
+  color: #B1D4BD !important; }
+
+.dotjamie-green-bg {
+  background-color: #B1D4BD !important; }
+
+.padding-20 {
+  padding: 20px; }
+
+.padding-15 {
+  padding: 15px !important; }
+
+.padding-left-50 {
+  padding-left: 50px; }
+
 nav ul a,
 nav .brand-logo {
   color: #444; }
 
 p {
   line-height: 2rem; }
+
+.gradient {
+  height: 400px;
+  background: #B0D4BD;
+  background: -webkit-linear-gradient(white, #B0D4BD);
+  background: -o-linear-gradient(white, #B0D4BD);
+  background: -moz-linear-gradient(white, #B0D4BD);
+  background: linear-gradient(white, #B0D4BD); }
+
+.list-style-disc {
+  list-style-type: disc; }
 
 .button-collapse {
   color: #26a69a; }

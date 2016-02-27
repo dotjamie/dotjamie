@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Click C Experiment</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700,900,400italic'>
+    <link rel="stylesheet" href="../dist/css/style.css" media="screen,projection"/>
+    <style>
+      .box-lg{
+        height: 90px;
+        width: 90px;
+        border: 1px solid #333;
+      }
+      .box-sm{
+        height: 50px;
+        width: 50px;
+        border: 1px solid #333;
+        margin: 5px
+      }
+      .inline-block{
+        display: inline-block;
+      }
+      .float-left{
+        float: left;
+      }
+      .clearfix{
+        clear: both;
+      }
+      .green-bg{
+        background-color: green;
+      }
+      .red-bg{
+        background-color: red !important;
+      }
+      .yellow-bg{
+        background-color: yellow;
+      }
+      .c-container{
+        background-color: white;
+        height: 360px;
+        width: 73%;
+        margin: auto;
+        padding-left: 7px
+      }
+      .gif-container{
+        width: 480px;
+        margin: auto;
+        height: 360px;
+        background-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo"><img src="../dist/images/dotjamie-logo.png" alt="DotJamie Logo" /></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <div class="section">
+      <div class="row center-align">
+        <div class="col m6">
+          <h2>Reference gif</h2>
+          <img src="http://i.imgur.com/tEtUrZk.gif" alt="" />
+        </div>
+        <div class="col m6">
+          <h2>My working example</h2>
+          <div class="gif-container">
+            <div class="c-container">
+              <div class="box-sm yellow-bg"></div>
+              <div class="box-lg inline-block float-left"></div>
+              <div class="box-lg inline-block float-left"></div>
+              <div class="box-lg inline-block float-left"></div>
+              <div class="box-lg clearfix"></div>
+              <div class="box-lg inline-block float-left"></div>
+              <div class="box-lg inline-block float-left"></div>
+              <div class="box-lg inline-block float-left"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script src="/dist/js/init.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var selected = []
+        $(".box-lg").on("click", function () {
+          if (!$(this).hasClass("green-bg")) {
+            selected.push(this)
+          }
+
+          $(this).addClass("green-bg")
+
+          if (selected.length == 7) {
+            $(".box-sm").addClass("red-bg")
+            var removeGreen = setInterval(function() {
+              var last = selected.pop()
+              $(last).removeClass("green-bg")
+              if (selected.length == 0) {
+                clearInterval(removeGreen);
+                $(".box-sm").removeClass("red-bg")
+              }
+            }, 500)
+
+          }
+
+        })
+      })
+    </script>
+  </body>
+</html>

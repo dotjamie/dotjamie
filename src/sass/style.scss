@@ -10,8 +10,22 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.position-relative{
+  position: relative;
+}
+.position-absolute{
+  position: absolute;
+}
+
 .font-18{
   font-size: 18px;
+}
+.font-32{
+  font-size: 32px;
+}
+
+.margin-top-50px{
+  margin-top: 50px
 }
 .gray-border{
   border: 1px solid lightgray;
@@ -21,6 +35,9 @@ html {
   width: initial !important;
 }
 .max-width-100pct{
+  max-width: 100%;
+}
+.width-100pct{
   width: 100%;
 }
 

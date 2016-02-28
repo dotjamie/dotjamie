@@ -74,6 +74,48 @@ html {
 .padding-left-50 {
   padding-left: 50px; }
 
+.box-lg {
+  height: 90px;
+  width: 90px;
+  border: 1px solid #333; }
+
+.box-sm {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #333;
+  margin: 5px; }
+
+.inline-block {
+  display: inline-block; }
+
+.float-left {
+  float: left; }
+
+.clearfix {
+  clear: both; }
+
+.green-bg {
+  background-color: green; }
+
+.red-bg {
+  background-color: red !important; }
+
+.yellow-bg {
+  background-color: yellow; }
+
+.c-container {
+  background-color: white;
+  height: 360px;
+  width: 73%;
+  margin: auto;
+  padding-left: 7px; }
+
+.gif-container {
+  width: 480px;
+  margin: auto;
+  height: 360px;
+  background-color: black; }
+
 nav ul a,
 nav .brand-logo {
   color: #444; }

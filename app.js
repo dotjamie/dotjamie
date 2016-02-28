@@ -15,6 +15,10 @@ app.get('/experiments/click-c', function (req, res) {
   res.sendFile(path + "/experiments/click-c.html");
 });
 
+app.get('/experiments/image-search', function (req, res) {
+  res.sendFile(path + "/experiments/image-search.html");
+});
+
 app.use(express.static(__dirname + '/'));
 
 

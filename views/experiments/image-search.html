@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Experiments</title>
+    <title>Image search</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="bower_components/Materialize/dist/css/materialize.min.css">
-    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.min.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700,900,400italic'>
-    <link rel="stylesheet" href="dist/css/style.css" media="screen,projection"/>
+    <link rel="stylesheet" href="../dist/css/style.css" media="screen,projection"/>
+
   </head>
   <body>
     <nav class="white" role="navigation">
@@ -37,46 +38,56 @@
       </div>
     </nav>
 
-    <div class="gradient height-100px valign-wrapper">
-      <div class="font-32 light valign center-align width-100pct">A collection of JavaScript experiments</div>
-    </div>
-
-    <div class="section margin-top-20px">
+    <div class="section">
       <div class="container">
-
-        <div class="row">
-
-          <div class="col s12 m6">
-            <div class="card  darken-1">
-              <div class="card-content">
-                <span class="card-title">setInterval</span>
-                <p>A functional version of a reference GIF using setInterval</p>
+        <nav class="margin-top-50px">
+          <div class="nav-wrapper">
+            <form id="imgSearch">
+              <div class="input-field">
+                <input id="search" type="search" placeholder="Enter a keyword to search images (ex: &quot;nature&quot;)" required>
+                <label for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons" id="clearSearch">close</i>
               </div>
-              <div class="card-action">
-                <a href="/experiments/click-c" class="indigo-text">View experiment</a>
-              </div>
-            </div>
+            </form>
           </div>
+        </nav>
 
-          <div class="col s12 m6">
-            <div class="card darken-1">
-              <div class="card-content">
-                <span class="card-title">Image search</span>
-                <p>Search for images using Unsplash API</p>
-              </div>
-              <div class="card-action">
-                <a href="/experiments/image-search" class="indigo-text">View experiment</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
+        <div id="searchResults" class="margin-top-50px"></div>
       </div>
     </div>
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
     <script src="/dist/js/init.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var ajaxCall = function(searchTerm){
+          $("#searchResults").empty();
+          $.ajax({
+            method: "GET",
+            url: "https://api.unsplash.com/photos/search?client_id=3cfff665cc53c4b40d33fc9d4a515bf6b377c120ddbcba72a41aa3eb6264e53f&query=" + searchTerm,
+            success: function(result){
+              var resultLength = result.length
+              for (var i = 0; i < resultLength; i++) {
+                $("#searchResults").append('<img src="' + result[i].urls.regular + '" class="width-100pct" />');
+              }
+              console.log(result)
+
+            }
+          })
+        }
+        $("#imgSearch").on("submit", function(e) {
+          ajaxCall( $("#search").val() );
+          e.preventDefault()
+        })
+        $("#clearSearch").on("click", function() {
+          $("#search").val('');
+          $("#searchResults").empty();
+        })
+
+      })
+    </script>
+
   </body>
 </html>

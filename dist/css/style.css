@@ -23,6 +23,18 @@ html {
 .margin-top-50px {
   margin-top: 50px; }
 
+.margin-top-30px {
+  margin-top: 30px; }
+
+.margin-top-20px {
+  margin-top: 20px; }
+
+.margin-top-0 {
+  margin-top: 0; }
+
+.margin-0 {
+  margin: 0; }
+
 .gray-border {
   border: 1px solid lightgray; }
 
@@ -41,11 +53,17 @@ html {
 .min-height-160px {
   min-height: 160px; }
 
+.height-100px {
+  height: 100px; }
+
 .dotjamie-green-text {
   color: #B1D4BD !important; }
 
 .dotjamie-green-bg {
   background-color: #B1D4BD !important; }
+
+.padding-top-20 {
+  padding-top: 20px; }
 
 .padding-20 {
   padding: 20px; }
@@ -64,12 +82,11 @@ p {
   line-height: 2rem; }
 
 .gradient {
-  height: 400px;
   background: #B0D4BD;
-  background: -webkit-linear-gradient(white, #B0D4BD);
-  background: -o-linear-gradient(white, #B0D4BD);
-  background: -moz-linear-gradient(white, #B0D4BD);
-  background: linear-gradient(white, #B0D4BD); }
+  background: -webkit-linear-gradient(#B0D4BD, #dfede4);
+  background: -o-linear-gradient(#B0D4BD, #dfede4);
+  background: -moz-linear-gradient(#B0D4BD, #dfede4);
+  background: linear-gradient(#B0D4BD, #dfede4); }
 
 .list-style-disc {
   list-style-type: disc; }

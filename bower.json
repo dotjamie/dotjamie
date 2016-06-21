@@ -19,7 +19,7 @@
     "tests"
   ],
   "dependencies": {
-    "Materialize": "materialize#^0.97.5",
+    "Materialize": "materialize#^0.97.6",
     "components-font-awesome": "^4.5.0"
   }
 }

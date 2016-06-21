@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crud</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700,900,400italic'>
+    <link rel="stylesheet" href="../dist/css/style.css" media="screen,projection"/>
+
+  </head>
+  <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo"><img src="../dist/images/dotjamie-logo.png" alt="DotJamie Logo" /></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <div class="section">
+      <div class="container">
+        <h1 class="center-align">THIS IS CRUD-DY</h1>
+        <form action="users" method="post">
+          <div class="input-field">
+            <input type="text" name="name" id="name" value="">
+            <label for="name">Name</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="age" id="age" value="">
+            <label for="age">Age</label>
+          </div>
+
+          <button type="submit" name="submitForm" class="btn">Submit</button>
+        </form>
+        <div id="usersData"></div>
+      </div>
+    </div>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script src="/dist/js/init.js"></script>
+    <script type="text/javascript">
+      $('form').on("submit", function(e) {
+        $.ajax({
+          method: 'POST',
+          url: '/users',
+          data: {
+            name: document.getElementById('name').value,
+            age: document.getElementById('age').value
+          },
+          success: function (data) {
+            document.getElementById('usersData').innerHTML = '<ul><li>id: ' + data.id + '</li><li>name: ' + data.name + '</li><li>age: ' + data.age + '</li></ul>'
+            console.log('success', data)
+          }
+        })
+        e.preventDefault()
+      })
+    </script>
+
+  </body>
+</html>

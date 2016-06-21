@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="elementId">
+      <h1>Holla</h1>
+      <input type="checkbox" name="name" value="" id="checkbox">
+    </div>
+
+    <!-- element.getElementsByTagName(name)
+    document.createElement(name)
+    parentNode.appendChild(node)
+    element.innerHTML
+    element.style.left
+    element.setAttribute
+    element.getAttribute
+    element.addEventListener
+    window.content
+    window.onload
+    window.dump
+    window.scrollTo -->
+
+  <script type="text/javascript">
+
+    var getCheckbox = document.getElementById("checkbox")
+    getCheckbox.setAttribute("checked", "checked")
+
+    var insertP = function () {
+      var newP = document.createElement('p')
+      var insertText = document.createTextNode('donkey')
+      newP.appendChild(insertText)
+
+      var div = document.getElementById('elementId')
+      document.body.insertBefore(newP, div)
+    }
+    insertP()
+
+  </script>
+  </body>
+</html>

@@ -1,10 +1,3 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
 html {
   font-family: 'Source Sans Pro', sans-serif; }
 
@@ -132,6 +125,9 @@ p {
 
 .list-style-disc {
   list-style-type: disc; }
+
+.canvas-container {
+  margin: auto; }
 
 .button-collapse {
   color: #26a69a; }

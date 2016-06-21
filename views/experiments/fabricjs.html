@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fabric.js</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700,900,400italic'>
+    <link rel="stylesheet" href="../dist/css/style.css" media="screen,projection"/>
+  </head>
+  <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo"><img src="../dist/images/dotjamie-logo.png" alt="DotJamie Logo" /></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <div class="center-align width-100pct">
+
+      <canvas id="c" width="1000" height="600" style="border: 2px solid gray;"></canvas>
+    </div>  
+    <div id="patterns" class="row">
+      <div class="col s2">
+        <img src="/dist/images/hot-air-balloons.jpeg" alt="" class="width-100pct"/>
+      </div>
+      <div class="col s2">
+        <img src="/dist/images/stellar.jpg" alt="" class="width-100pct"/>
+      </div>
+      <div class="col s2">
+        <img src="/dist/images/succulents.jpeg" alt="" class="width-100pct"/>
+      </div>
+      <div class="col s2">
+        <img src="/dist/images/wood.jpg" alt="" class="width-100pct"/>
+      </div>
+    </div>
+
+      <p>
+        Repeat:
+        <select id="repeat" class="browser-default">
+          <option>repeat</option>
+          <option>repeat-x</option>
+          <option>repeat-y</option>
+          <option>no-repeat</option>
+        </select>
+      </p>
+
+    </div>
+
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script src="/dist/js/init.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
+
+    <script type="text/javascript">
+      (function() {
+        var canvas = this.__canvas = new fabric.Canvas('c');
+        fabric.Object.prototype.transparentCorners = false;
+
+        function loadPattern(url) {
+          fabric.util.loadImage(url, function(img) {
+            text.fill = new fabric.Pattern({
+              source: img,
+              repeat: document.getElementById('repeat').value
+            });
+            canvas.renderAll();
+          });
+        }
+
+        var text = new fabric.Text('Cool\npattern', {
+          fontSize: 190,
+          left: 50,
+          top: 0,
+          lineHeight: 1,
+          originX: 'left',
+          fontFamily: 'Helvetica',
+          fontWeight: 'bold'
+        });
+        canvas.add(text);
+
+        loadPattern('/dist/images/hot-air-balloons.jpeg');
+
+        $("#patterns img").on("click", function() {
+          loadPattern($(this).attr("src"))
+        })
+
+        document.getElementById('repeat').onchange = function() {
+          text.fill.repeat = this.value;
+          canvas.renderAll();
+        };
+      })();
+
+    </script>
+  </body>
+</html>

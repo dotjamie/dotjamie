@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="time"></div>
+
+    <script type="text/javascript">
+    var updateClock = function() {
+      now = new Date()
+      time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
+      console.log(time)
+      document.getElementById('time').innerHTML = time
+    }
+    setInterval(updateClock, 1000)
+    // updateClock()
+    </script>
+  </body>
+</html>

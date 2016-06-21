@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <input type="text" name="name" value="" id="inputValue">
+    <button type="button" name="button" id="addBtn" onclick="incrementArray()">Add</button>
+    <button type="button" name="button" id="displayBtn" onclick="displayArray()">Display</button>
+    <div id="displayArrayDiv"></div>
+
+    <script type="text/javascript">
+      // grabs input
+      var inputValue = document.getElementById('inputValue')
+      // defines empty array
+      var emptyArray = []
+      // add input to array
+      var incrementArray = function(){
+        emptyArray.push(inputValue.value)
+        console.log(emptyArray)
+      }
+
+      var displayArray = function(){
+        document.getElementById('displayArrayDiv').innerHTML = ''
+        for (var i = 0; i < emptyArray.length; i++) {
+          var p = document.createElement('p')
+          p.innerHTML = 'element ' + i + ' = ' + emptyArray[i] 
+          document.getElementById('displayArrayDiv').appendChild(p)
+        }
+      }
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .boxSlide{
+        margin-left: 150px !important;
+        transition: all ease 1s;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div style="width:500px; height: 30px; border: 3px solid black;">
+      <div style="width:30px; height: 30px; background-color: blue; margin-left: 0;" id ="blueBox" onclick="slide()">
+
+      </div>
+    </div>
+    <h2>Gold</h2>
+    <h2>Silver</h2>
+    <h2>Bronze</h2>
+
+    <label for="">1st number</label>
+    <input type="text" name="name" value="" id="firstValue">
+    <label for="">2nd number</label>
+    <input type="text" name="name" value="" id="secondValue">
+    <button type="button" name="button" id="multiplyBtn" onclick="multiplicationCalculation()">Multiply</button>
+    <button type="button" name="button" id="divideBtn">Divide</button>
+    <div id="resultSection">
+      <p>
+        The result is:
+      </p>
+      <p id="answer">
+
+      </p>
+    </div>
+
+
+  <script type="text/javascript">
+    function multiplicationCalculation(){
+      var firstValue = document.getElementById("firstValue").value
+
+      var secondValue = document.getElementById("secondValue").value
+      var multiplicationAnswer = firstValue * secondValue
+      document.getElementById("answer").innerHTML = multiplicationAnswer
+
+    }
+
+    function isInteger(x) {
+      if (typeof(x) !== 'number' ) {
+        return false
+      }
+      else {
+        return Number(x) === x && x % 1 === 0;
+      }
+    } 
+
+
+
+
+    var slide = function() {
+      document.getElementById("blueBox").setAttribute("class", "boxSlide")
+    }
+
+  </script>
+
+  </body>
+</html>

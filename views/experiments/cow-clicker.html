@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <img src="http://resources3.news.com.au/images/2012/03/27/1226311/607271-cow.jpg" alt="" onclick="cowClick()" id="cowPic"/>
+    <div id="clickerCownt"></div>
+
+    <script type="text/javascript">
+      var countClicks = 0;
+      var cowClick = function(){
+        countClicks++;
+        document.getElementById('clickerCownt').innerHTML = countClicks
+      }
+
+
+    </script>
+  </body>
+</html>

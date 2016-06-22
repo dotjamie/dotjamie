@@ -23,6 +23,10 @@ app.get('/experiments/image-search', function (req, res) {
   res.sendFile(path + "/experiments/image-search.html");
 });
 
+app.get('/experiments/keenIO', function (req, res) {
+  res.sendFile(path + "/experiments/keenIO.html");
+});
+
 app.get('/experiments/fabricjs', function (req, res) {
   res.sendFile(path + "/experiments/fabricjs.html");
 });

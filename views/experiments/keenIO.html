@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Keen IO experiment</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700,900,400italic'>
+    <link rel="stylesheet" href="../dist/css/style.css" media="screen,projection"/>
+
+    <script type="text/javascript">
+      !function(a,b){a("Keen","https://d26b395fwzu5fz.cloudfront.net/3.4.1/keen.min.js",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]=function(b){c["_"+a].clients=c["_"+a].clients||{},c["_"+a].clients[b.projectId]=this,this._config=b},c[a].ready=function(b){c["_"+a].ready=c["_"+a].ready||[],c["_"+a].ready.push(b)},d=["addEvent","setGlobalProperties","trackExternalLink","on"];for(var g=0;g<d.length;g++){var h=d[g],i=function(a){return function(){return this["_"+a]=this["_"+a]||[],this["_"+a].push(arguments),this}};c[a].prototype[h]=i(h)}e=document.createElement("script"),e.async=!0,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);
+    </script>
+
+  </head>
+  <body>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo"><img src="../dist/images/dotjamie-logo.png" alt="DotJamie Logo" /></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
+          <li><a href="/experiments">Experiments</a></li>
+          <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+          <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
+          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <div class="section">
+      <div class="container">
+        <div class="row margin-top-30px">
+          <div class="col s6">
+            <h4>Click a color, any color!</h4>
+            <a href="#" class="waves-effect waves-light btn purple accent-2 color-btn" id="purpleBtn" data-target="purpleFoobar">Kool-aid</a>
+            <a href="#" class="waves-effect waves-light btn orange accent-2 color-btn" id="orangeBtn" color="orange">Fanta</a>
+            <a href="#" class="waves-effect waves-light btn color-btn" id="tealBtn">Ocean</a>
+          </div>
+          <div class="col s6">
+            <div id="my_chart">
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script src="/dist/js/init.js"></script>
+    <script type="text/javascript">
+      var client= new Keen({
+        projectId: "576a084b24819614f3ed2d02",
+        writeKey: "676be61e4ec7aae9e9bbdc36237ebbad734af47f9cfe02b8d9d87b0808504f75ec2a598a542aeed98704970261275eafff57768d141072e0b671fafbef6c3be6bb200723373dc3ae23d21efbe981d05dfef6e9966decfe161fa85306a265b797",
+        readKey: "c29c261150462732b6c5a53fce69355330d21cd221b176b2cb3c1b40d480a291ce69ddf35113842b22b7536cfbe3681090f751ea759c0c96590bc4dda3d7200104b312c09faf68f5026afb9e129eba09519dcc87df351908a8108a1a6b9de8ac",
+      });
+
+      var orangeClique = {
+        color: "orange",
+        name: "Fanta"
+      }
+
+      var tealClique = {
+        color: "teal",
+        name: "Ocean"
+      }
+
+      var purpClique = {
+        color: "purple",
+        name: "Kool-aid"
+      }
+    </script>
+    <script type="text/javascript">
+      // var buttons = document.getElementsByClassName('color-btn')
+      // var i;
+      // for (i = 0; i < buttons.length; i++) {
+      //   buttons[i].onclick = function(e){
+      //     // element.getAttribute(attributeName)
+      //     console.log(e.target.getAttribute('color'));
+      //   }
+      // }
+
+      document.getElementById("purpleBtn").onclick = function(event){
+        return client.trackExternalLink(event, "button_clicked", purpClique);
+      };
+      document.getElementById("orangeBtn").onclick = function(event){
+        return client.trackExternalLink(event, "button_clicked", orangeClique);
+      };
+      document.getElementById("tealBtn").onclick = function(event){
+        return client.trackExternalLink(event, "button_clicked", tealClique);
+      };
+
+      Keen.ready(function(){
+        var query = new Keen.Query("count", {
+          eventCollection: "button_clicked",
+          groupBy: [
+          "name"
+      ],
+          timeframe: "this_14_days",
+          timezone: "UTC"
+        });
+
+        client.draw(query, document.getElementById("my_chart"), {
+          title: "Which button gets the most clicks?",
+          colors: [ "#ffab40", "#e040fb", "#26a69a" ],
+          height: 400,
+          width: 600,
+        });
+
+      });
+    </script>
+
+  </body>

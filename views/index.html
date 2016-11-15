@@ -38,10 +38,6 @@
   </nav>
 
   <div id="index-banner" class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <!-- <h1 class="header left-text black-text padding-left-50 valign light">My place to tinker</h1> -->
-
-    </div>
     <div class="parallax"><img src="dist/images/daisy.jpeg" alt="Unsplashed background img 1"></div>
   </div>
 
@@ -203,6 +199,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('.carousel').carousel();
+      $('.parallax').parallax();
     });
     var options = [
       { selector: '#image-test', offset: 50, callback: 'Materialize.fadeInImage("#image-test")' },

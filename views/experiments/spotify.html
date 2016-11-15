@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Spotify Artist Search</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body>
+    <!-- search bar -->
+    <nav class="spotify-green-bg">
+      <div class="nav-wrapper">
+        <form id="artistSearch">
+          <div class="input-field">
+            <input id="searchBar" type="search" placeholder="Enter artist name here" required>
+            <label for="search"><i class="material-icons black-text">search</i></label>
+            <i class="material-icons" id="clearSearch">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <!-- /search bar -->
+    <div class="container">
+      <!-- loading spinner  -->
+      <div class="center-align section" id="spinner">
+        <div class="preloader-wrapper">
+          <div class="spinner-layer spinner-spotify-green">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /loading spinner  -->
+      <!-- search results -->
+      <h3 id="resultsHeader" class="center-align"></h3>
+      <div id="searchResults" class="center-align margin-bottom-50"></div>
+      <!-- /search results -->
+    </div>
+
+
+  </body>
+</html>

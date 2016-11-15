@@ -28,6 +28,8 @@ html {
 .margin-0 {
   margin: 0; }
 
+.margin-bottom-20 { margin-bottom: 20px; }
+
 .gray-border {
   border: 1px solid lightgray; }
 
@@ -131,6 +133,11 @@ p {
 
 .button-collapse {
   color: #26a69a; }
+
+/* Materialize overrides  */
+.carousel-item {
+  height: auto !important;
+}
 
 .parallax-container {
   min-height: 380px;

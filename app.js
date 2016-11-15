@@ -15,6 +15,10 @@ app.get('/experiments', function (req, res) {
   res.sendFile(path + "/experiments/index.html");
 });
 
+app.get('/womenjs', function (req, res) {
+  res.sendFile(path + "/womenjs/index.html");
+});
+
 app.get('/experiments/click-c', function (req, res) {
   res.sendFile(path + "/experiments/click-c.html");
 });

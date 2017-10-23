@@ -3,6 +3,19 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.womenjs-container{
+  // font-family: 'Playfair Display', serif;
+  // font-weight: 300;
+}
+
+.carousel .carousel-item{
+  height: 200px;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
 .position-relative{
   position: relative;
 }

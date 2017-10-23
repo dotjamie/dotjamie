@@ -19,6 +19,10 @@ app.get('/womenjs', function (req, res) {
   res.sendFile(path + "/womenjs/index.html");
 });
 
+app.get('/mobile-app', function (req, res) {
+  res.sendFile(path + "/mobileapp/index.html");
+});
+
 app.get('/experiments/click-c', function (req, res) {
   res.sendFile(path + "/experiments/click-c.html");
 });

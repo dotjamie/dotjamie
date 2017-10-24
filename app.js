@@ -39,6 +39,10 @@ app.get('/experiments/fabricjs', function (req, res) {
   res.sendFile(path + "/experiments/fabricjs.html");
 });
 
+app.get('/experiments/spotify', function (req, res) {
+  res.sendFile(path + "/experiments/spotify.html");
+});
+
 app.get('/experiments/crud', function (req, res) {
   res.sendFile(path + "/experiments/crud.html");
 });

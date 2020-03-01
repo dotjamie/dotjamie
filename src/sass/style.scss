@@ -3,6 +3,19 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.womenjs-container{
+  // font-family: 'Playfair Display', serif;
+  // font-weight: 300;
+}
+
+.carousel .carousel-item{
+  height: 200px;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
 .position-relative{
   position: relative;
 }
@@ -32,6 +45,15 @@ html {
 
 .margin-0{
   margin: 0
+}
+.margin-bottom-10{
+  margin-bottom: 10px
+}
+.margin-bottom-20{
+  margin-bottom: 20px
+}
+.margin-bottom-50{
+  margin-bottom: 50px
 }
 .gray-border{
   border: 1px solid lightgray;

@@ -19,6 +19,10 @@ app.get('/womenjs', function (req, res) {
   res.sendFile(path + "/womenjs/index.html");
 });
 
+app.get('/mobile-app', function (req, res) {
+  res.sendFile(path + "/mobileapp/index.html");
+});
+
 app.get('/experiments/click-c', function (req, res) {
   res.sendFile(path + "/experiments/click-c.html");
 });
@@ -33,6 +37,10 @@ app.get('/experiments/keenIO', function (req, res) {
 
 app.get('/experiments/fabricjs', function (req, res) {
   res.sendFile(path + "/experiments/fabricjs.html");
+});
+
+app.get('/experiments/spotify', function (req, res) {
+  res.sendFile(path + "/experiments/spotify.html");
 });
 
 app.get('/experiments/crud', function (req, res) {

@@ -28,21 +28,26 @@
       <div class="nav-wrapper container">
         <a id="logo-container" href="/" class="brand-logo"><img src="../dist/images/dotjamie-logo.png" alt="DotJamie Logo" /></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
-          <li><a href="/experiments">Experiments</a></li>
+          <!-- <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li> -->
+          <li class="active"><a href="/experiments">Experiments</a></li>
+          <li><a href="/womenjs">Women.js</a></li>
+          <li><a href="/mobile-app">Mobile app</a></li>
           <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
-          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+
           <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
-          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+          <li><a href="https://twitter.com/javascriptjamie" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li>
-          <li><a href="/experiments">Experiments</a></li>
+          <!-- <li><a href="/dotjamie_portfolio.pdf" target="_blank">Portfolio</a></li> -->
+          <li class="active"><a href="/experiments">Experiments</a></li>
+          <li><a href="/womenjs">Women.js</a></li>
+          <li><a href="/mobile-app">Mobile app</a></li>
+
           <li><a href="https://github.com/dotjamie/dotjamie" target="_blank"><i class="fa fa-github"></i></a></li>
-          <li><a href="http://stackoverflow.com/users/3866506/dotjamie" target="_blank"><i class="fa fa-stack-overflow"></i></i></a></li>
+
           <li><a href="https://www.linkedin.com/in/jamiewarnock" target="_blank"><i class="fa fa-linkedin"></i></i></a></li>
-          <li><a href="https://twitter.com/MrsJamieWarnock" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
+          <li><a href="https://twitter.com/javascriptjamie" target="_blank"><i class="fa fa-twitter"></i></i></a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
@@ -76,14 +81,14 @@
           $("#searchResults").empty();
           $.ajax({
             method: "GET",
-            url: "https://api.unsplash.com/photos/search?client_id=3cfff665cc53c4b40d33fc9d4a515bf6b377c120ddbcba72a41aa3eb6264e53f&query=" + searchTerm,
-            success: function(result){
-              var resultLength = result.length
-              for (var i = 0; i < resultLength; i++) {
-                $("#searchResults").append('<img src="' + result[i].urls.regular + '" class="width-100pct" />');
-              }
-              console.log(result)
+            url: "https://api.unsplash.com/search/photos?client_id=3cfff665cc53c4b40d33fc9d4a515bf6b377c120ddbcba72a41aa3eb6264e53f&query=" + searchTerm,
+            success: function(data){
+              console.log('data', data)
+              data.results.forEach(result => {
+                console.log('result', result)
+                $("#searchResults").append('<img src="' + result.urls.regular + '" class="width-100pct" />');
 
+              });
             }
           })
         }
